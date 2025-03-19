@@ -16,6 +16,7 @@ const ArticleCard = () => {
             The Moon is Earth&apos;s only natural satellite. It&apos;s pretty cool and
             makes tides happen. Werewolves love it too.
             </p>
+            <button className='btn btn-primary'>Next</button>
 
         </CardContent>
     </Card>
