@@ -1,22 +1,30 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 
-const ArticleCard = () => {
+const ArticleCard = ({title,extract,image}) => {
   return (
     <Card className="w-full max-w-md mx-auto sm:max-w-lg">
         <CardHeader>
-            <CardTitle>The Moon</CardTitle>
+            <CardTitle>{title}</CardTitle>
         </CardHeader>
         <CardContent>
-            <img src='https://via.placeholder.com/300x200'
-            alt=''
-            className='w-full h-48 sm:h-64 md:h-72'
-            />
+            {
+                image?(
+
+                    <img src={image}
+                    alt=''
+                    className='w-full h-48 sm:h-64 md:h-72'
+                    />
+                ):(
+                    <div className='w-full h-48 bg-gray-200 mb-4 flex items-center justify-center'>
+                        No Image
+                    </div>
+                )
+            }
             <p className='text-black'>
-            The Moon is Earth&apos;s only natural satellite. It&apos;s pretty cool and
-            makes tides happen. Werewolves love it too.
+                {extract}
             </p>
-            <button className='btn btn-primary'>Next</button>
+            {/* <button className='btn btn-primary'>Next</button> */}
 
         </CardContent>
     </Card>

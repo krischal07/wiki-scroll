@@ -1,13 +1,18 @@
 import ArticleCard from "@/components/ArticleCard";
-import Image from "next/image";
+import axios from "axios";
+async function getRandomArticle(){
+  const response = await axios.get('http://localhost:3001/api/wiki/random')
+  console.log("Fetched article:", response.data); // Log it!
 
-export default function Home() {
+  return response.data
+}
+
+export default async function Home() {
+  const article = await getRandomArticle()
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      {/* <h1 className="text-4xl font-bold">
-        Wiki Scroll: Knowledge Meets Tiktok
-      </h1> */}
-      <ArticleCard />
+      
+      <ArticleCard image={article.image} extract={article.extract} title={article.title}/>
     </div>
   );
 }
