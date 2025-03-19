@@ -2,7 +2,7 @@ import ArticleCard from "@/components/ArticleCard";
 import axios from "axios";
 async function getRandomArticle(){
   const response = await axios.get('http://localhost:3001/api/wiki/random')
-  console.log("Fetched article:", response.data); // Log it!
+  // console.log("Fetched article:", response.data); // Log it!
 
   return response.data
 }

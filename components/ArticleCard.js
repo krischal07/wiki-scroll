@@ -24,6 +24,7 @@ const ArticleCard = ({title,extract,image}) => {
             <p className='text-black'>
                 {extract}
             </p>
+            <button className='btn btn-primary mt-4'>Next</button>
             {/* <button className='btn btn-primary'>Next</button> */}
 
         </CardContent>
