@@ -7,7 +7,7 @@ const InfiniteScroll = ({ intialArticle }) => {
   const [articles, setArticles] = useState( [intialArticle] );
   const sentinelRef = useRef(null);
 //   console.log(intialArticle, "intialArticle");
-  console.log("articles",articles)
+//   console.log("articles",articles)
   useEffect(() => {
     const observer = new IntersectionObserver(
       async (entries) => {
@@ -29,10 +29,11 @@ const InfiniteScroll = ({ intialArticle }) => {
     <div>
       {articles.map((article) => (
         <ArticleCard
-          key={article.title}
+          key={article.pageid}
           title={article.title}
           extract={article.extract}
           image={article.image}
+          
         />
       ))}
       <div ref={sentinelRef} className="h-10" />

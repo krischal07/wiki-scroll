@@ -7,8 +7,9 @@ export async function GET(){
         )
 
         const data = response.data
-        
+
         return Response.json({
+            pageid: data.pageid,
             title:data.title,
             extract: data.extract,
             image: data.thumbnail?.source || null

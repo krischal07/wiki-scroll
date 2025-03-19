@@ -7,14 +7,14 @@ const ArticleCard = ({title,extract,image}) => {
   return (
     <Card className="w-full max-w-md mx-auto sm:max-w-lg mb-6">
         <CardHeader>
-            <CardTitle>{title}</CardTitle>
+            <CardTitle className='text-black'>{title}</CardTitle>
         </CardHeader>
         <CardContent>
             {
                 image?(
 
                     <img src={image}
-                    alt=''
+                    alt={title}
                     className='w-full h-48 sm:h-64 md:h-72'
                     />
                 ):(
@@ -26,7 +26,7 @@ const ArticleCard = ({title,extract,image}) => {
             <p className='text-black'>
                 {extract}
             </p>
-            <button className='btn btn-primary mt-4'>Next</button>
+            {/* <button className='btn btn-primary mt-4'>Next</button> */}
             {/* <button className='btn btn-primary'>Next</button> */}
 
         </CardContent>

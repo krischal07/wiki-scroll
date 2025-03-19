@@ -2,9 +2,7 @@
 import InfiniteScroll from "@/components/InfiniteScroll";
 import axios from "axios";
 async function getRandomArticle() {
-  const response = await axios.get("http://localhost:3001/api/wiki/random", {
-    cache: "no-store",
-  });
+  const response = await axios.get("http://localhost:3001/api/wiki/random");
   // console.log("Fetched article:", response.data); // Log it!
 
   return response.data;
