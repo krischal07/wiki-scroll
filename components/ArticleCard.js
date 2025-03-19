@@ -1,9 +1,11 @@
+"use client"
+
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 
 const ArticleCard = ({title,extract,image}) => {
   return (
-    <Card className="w-full max-w-md mx-auto sm:max-w-lg">
+    <Card className="w-full max-w-md mx-auto sm:max-w-lg mb-6">
         <CardHeader>
             <CardTitle>{title}</CardTitle>
         </CardHeader>
