@@ -14,13 +14,15 @@ async function getRandomArticle() {
 export default async function Home() {
   const session = await getServerSession(authOptions)
   console.log(session)
-  
   if(!session){
     redirect("/login")
   }
+  const {user} = session
   const intialArticle = await getRandomArticle();
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+
+      <p className=""><span className="font-bold text-3xl">Welcome</span>,{user.email}</p>
       <InfiniteScroll
         intialArticle={intialArticle}
       />
