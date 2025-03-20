@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import ArticleCard from "./ArticleCard";
+import LogoutButton from "./LogoutButton";
 
 const InfiniteScroll = ({ intialArticle }) => {
   const [articles, setArticles] = useState( [intialArticle] );
@@ -27,6 +28,7 @@ const InfiniteScroll = ({ intialArticle }) => {
   }, []);
   return (
     <div>
+        <LogoutButton />
       {articles.map((article) => (
         <ArticleCard
           key={article.pageid}
