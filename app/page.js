@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 async function getRandomArticle() {
-  const response = await axios.get("http://localhost:3001/api/wiki/random");
+  const response = await axios.get("http://localhost:3000/api/wiki/random");
   // console.log("Fetched article:", response.data); // Log it!
 
   return response.data;
@@ -20,7 +20,7 @@ export default async function Home() {
   const {user} = session
   const intialArticle = await getRandomArticle();
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4 dark:bg-black">
 
       <p className=""><span className="font-bold text-3xl">Welcome</span>,{user.email}</p>
       <InfiniteScroll
