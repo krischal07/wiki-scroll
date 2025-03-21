@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import db from "@/lib/db";
 import bcrypt from "bcryptjs";
+import { signOut } from "next-auth/react";
 
 export const authOptions = {
   providers: [
@@ -66,6 +67,11 @@ export const authOptions = {
       session.user.id = token.sub;
       return session;
     },
+    async signOut(){
+      if(typeof window !=="undefined"){
+          localStorage.removeItem("filters")
+      }
+    }
   },
 };
 

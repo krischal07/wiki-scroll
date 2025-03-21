@@ -7,7 +7,8 @@ const ArticleCard = ({title,extract,image}) => {
   return (
     <Card className="w-full max-w-md mx-auto sm:max-w-lg mb-6">
         <CardHeader>
-            <CardTitle className='text-black dark:text-white'>{title}</CardTitle>
+            <CardTitle className='text-black dark:text-white text-center'>{title}</CardTitle>
+
         </CardHeader>
         <CardContent>
             {
