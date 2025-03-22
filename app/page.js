@@ -5,11 +5,12 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import FilterCheck from "@/components/FilterCheck";
+
+
 async function getRandomArticle() {
-  const response = await axios.get("http://localhost:3000/api/wiki/random",{
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_HOST}/api/wiki/random`,{
     cache: "force-cache"
   });
-  // console.log("Fetched article:", response.data); // Log it!
 
   return response.data;
 }
@@ -28,7 +29,7 @@ export default async function Home() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4 dark:bg-black">
       <FilterCheck />
 
-      
+
       <p className=""><span className="font-bold text-3xl">Welcome</span>,{user.email}</p>
       <InfiniteScroll
         intialArticle={intialArticle}

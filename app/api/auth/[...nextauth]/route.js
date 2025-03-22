@@ -3,7 +3,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import db from "@/lib/db";
 import bcrypt from "bcryptjs";
-import { signOut } from "next-auth/react";
 
 export const authOptions = {
   providers: [
@@ -45,7 +44,7 @@ export const authOptions = {
   },
 
   callbacks: {
-    async signIn({ user, account, profile }) {
+    async signIn({ user, account }) {
       if (account.provider === "google") {
         const [rows] = await db.query("Select * from users where email=?", [
           user.email,
